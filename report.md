@@ -21,3 +21,30 @@
 ### 三、论文总结
 - 主要重点在于**非结构化数据处理**（MedCAT）以及**模型构建**（GPT-2）
 - 自己粗略实验结果：用压缩版本的MIMIC数据集，775个样本，训练20轮后，GPT-2比LSTM准确率高41.2%；改成200后，GPT-2比LSTM低73.3%。
+### 四、代码研究
+#### 1.experiments/Foresight | MIMIC | Final | Prepare data.ipynb(预处理数据)
+##### 输入：  
+###### ①原始注释数据（MIMIC-III电子病历）  
+- 路径：./data/timecat/mimic/annotated_february_2022/part_*.pickle  
+- 内容：MedCat对MIMIC数据库中临床文本NOTEEVENTS.CSV的注释结果  
+###### ②辅助映射文件  
+- doc2pt.pickle:文档ID->患者ID映射  
+- doc2time.pickle:文档ID->时间戳  
+- pt2dob_datetime.pickle：患者ID->死亡时间戳
+- pt2sex.pickle：患者ID->性别
+- pt2ethnicity.pickle:患者ID->种族/民族
+###### ③MedCAT模型包
+- mc_modelpack_phase2_snomed_190k_february_2022.zip
+##### 输出
+- dataset-info/{RUN_NAME}.txt 数据集统计信息（患者数、概念数、各类别数量等）
+- dataset-info/{RUN_NAME}.html 序列长度分布直方图
+- {RUN_NAME}_just_before_encoding/ 编码前的 Hugging Face Dataset（含 token 字符串、时间、类型等）
+- {RUN_NAME}_prepared_split/ 最终编码后的数据集
+- tokenizer_{RUN_NAME}.pickle 自定义 tokenizer
+- lns_{DATASET_NAME}.pickle 各患者 stream 长度列表
+- cnts_{DATASET_NAME}.pickle 各 token 的全局出现频次
+- types_{DATASET_NAME}.pickle 每种 token_type 对应的 token 集合
+### 五、当前问题
+- 没有论文中使用的MedCAT模型包（是私有的），找到了公开模型包MedMentions（从公开数据集MedMentions构建），如果能拿到从SNOMED-CT构建的模型包更好（需通过NIH认证）
+- 之前尝试自己构建模型包，但不能用，代码一直报错。（自己构建非常复杂，靠ai行不通，得学习官方文档）
+- 用公开模型包MedMentions，发生了很多key不匹配的问题。
