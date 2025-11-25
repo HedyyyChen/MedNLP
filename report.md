@@ -44,6 +44,10 @@
 - lns_{DATASET_NAME}.pickle 各患者 stream 长度列表
 - cnts_{DATASET_NAME}.pickle 各 token 的全局出现频次
 - types_{DATASET_NAME}.pickle 每种 token_type 对应的 token 集合
+##### 所需资料
+- mimic-iii数据集（已有）
+- MedCAT模型包（只有公开的）
+ps: SNOMED-CT知识库(已有),是自己构建MedCAT需要的，但自己构建太复杂了，一直失败。
 ### 五、当前问题
 - 没有论文中使用的MedCAT模型包（是私有的），找到了公开模型包MedMentions（从公开数据集MedMentions构建），如果能拿到从SNOMED-CT构建的模型包更好（需通过NIH认证）
 - 之前尝试自己构建模型包，但不能用，代码一直报错。（自己构建非常复杂，靠ai行不通，得学习官方文档）
