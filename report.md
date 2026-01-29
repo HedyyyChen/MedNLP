@@ -125,6 +125,7 @@ DRG 分类 → 读取出院后 DRG token 的 top-1 概率（771 类，准确率 
 ②在inference代码中添加AKI推理任务，并运行推理  
 ③构建数据集中的AKI标签（患者住院ID，严重程度stage1-3，48h内是否有AKI）  
 ④利用标签评估推理结果
+- 血清肌酐itemid=51081
 - run_inference.py的具体修改：  
 1.新增将时间token转换为小时和判断是否AKI的函数  
 2.跳过原有停止条件，AKI任务的停止条件是发生AKI或者到timeline_len  
@@ -133,3 +134,7 @@ DRG 分类 → 读取出院后 DRG token 的 top-1 概率（771 类，准确率 
 ①用于评估的AKI标签（见aki_labels_scr_only.csv）  
 Total stays: 320998  
 AKI Stage ≥2: 14260 (4.4%)
+### 新增推理任务2
+- Multiple myeloma  "progression-free survival"  prediction（多发性骨髓瘤的无进展生存期预测）
+- 数据集中，有两个版本的Multiple myeloma ICD，一个20开头，一个C90开头，具体可查看Multiple-myeloma.ipynb。  
+已从数据集中提取患有该疾病的患者数据，具体可查看mm_patients.csv
