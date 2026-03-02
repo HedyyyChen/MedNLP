@@ -116,6 +116,78 @@ DRG 分类 → 读取出院后 DRG token 的 top-1 概率（771 类，准确率 
 - 利用推理结果画图，发现ROC曲线基本相似，PR曲线差距较大。但这可能是仅1次推理产生的不稳定误差，总体来说代码是可以跑通的。
 ### 利用官方预训练权重训练
 - 因为推理就11h，训练还没进行。
+### 官方代码框架
+ethos-paper
+    ├─ethos  # 模型主体
+    │   │  cli.py  # 命令行界面（CLI）主入口。负责动态加载并调用 commands 文件夹中的子命令（如 train, infer 等）
+        │  constants.py  # 全局常量定义（如特殊 Token 标识、文件默认路径等）
+        │  metrics.py  # 评估指标实现（如 AUC-ROC、Precision-Recall 等）
+        │  model.py  # 核心模型定义
+        │  utils.py  # 通用工具函数（模型加载、日志记录、随机种子设置等）
+        │  __init__.py
+        │  __main__.py
+        │
+        ├─commands  # CLI命令实现
+        │      infer.py  # 对应 ethos infer 命令。加载已训练模型，在测试集上执行推理
+        │      tokenize_.py  # 对应 ethos tokenize- 命令。处理原始数据的清洗、转换与分词
+        │      train.py  # 对应 ethos train 命令。负责解析参数并启动训练循环
+        │      __init__.py
+        │
+        ├─data  # 处理过后的数据
+        │
+        ├─datasets  # 数据加载层，定义了用于不同任务的 PyTorch Dataset 类
+        │      admission_mortality.py  # 入院死亡率预测任务专用数据集
+        │      base.py  # 定义了基类 TimelineDataset，处理患者时间轴数据（包括时间 Token、年龄 Token 和上下文逻辑）
+        │      experimental.py  
+        │      mimic.py  # 针对 MIMIC 数据库的特定实现（如 ICU 死亡率预测数据集）
+        │      mortality.py  # 死亡率预测任务专用数据集
+        │      readmission.py  # 再入院预测任务专用数据集
+        │      __init__.py
+        │
+        ├─inference
+        │      constants.py  # 推理任务枚举
+        │      run_inference.py  # 执行模型推理的核心逻辑，用于生成预测结果或序列补全
+        │      __init__.py
+        │
+        ├─tokenize
+        │  │  base.py
+        │  │  constants.py
+        │  │  separators.py
+        │  │  special_tokens.py
+        │  │  tokenization_steps.py
+        │  │  translation_base.py
+        │  │  vocabulary.py
+        │  │  __init__.py
+        │  │
+        │  └─mimic
+        │          atc.py
+        │          code_translation.py
+        │          preprocessors.py
+        │          special.py
+        │          __init__.py
+        │
+        └─train
+                metrics.py
+                training_loop.py
+                utils.py
+                __init__.py
+    ├─figures  # 图片（不重要）
+    ├─notebooks  # 示例代码
+    ├─out  # 模型训练结果，预训练权重
+    ├─results   # 推理结果
+    └─scripts   # 运行脚本
+        ├── convert_csv_to_parquet.py  # 将 CSV 转换为 Parquet 格式以提高加载速度
+        ├── data_train_test_split.py  # 执行训练集和测试集的划分
+        ├── plot_readmission.py
+        ├── run_inference.sh  # 用于在集群（SLURM）上提交推理作业的 Shell 脚本
+        ├── run_tokenization.sh
+        └── run_training.sh
+
+- 具体的推理步骤（以ICU再入院任务为例）：  
+①读取HDF5中的tokenized数据，包括患者基础信息（context_len）、患者病例到ICU出院时的所有事件（timeline_len）代码参考：run_inference.py    
+②调用model.py推理，需要注意：预测下一个token的逻辑是多项式采样（简单来说就是在词表中转转盘，概率值高的抽中概率大，但概率小的也可能抽到）  
+③根据设置的toi停止推理，输出json结果文件  
+④根据json结果文件，利用metrics.py计算评估指标。如果真实数据集中在规定时间内该患者再入院，记为1；预测结果是随机采样多次的平均概率，超过设定阈值，记为1.
 ### 创新（新增推理任务）
 - 新增AKI任务：AKI（急性肾损伤），主要评判指标（国际公认）：  
 1.血清肌酐（Serum Creatinine, Scr）升高  
@@ -134,7 +206,15 @@ DRG 分类 → 读取出院后 DRG token 的 top-1 概率（771 类，准确率 
 ①用于评估的AKI标签（见aki_labels_scr_only.csv）  
 Total stays: 320998  
 AKI Stage ≥2: 14260 (4.4%)
-### 新增推理任务2
+### 新增创新任务2
 - Multiple myeloma  "progression-free survival"  prediction（多发性骨髓瘤的无进展生存期预测）
 - 数据集中，有两个版本的Multiple myeloma ICD，一个20开头，一个C90开头，具体可查看Multiple-myeloma.ipynb。  
 已从数据集中提取患有该疾病的患者数据，具体可查看mm_patients.csv
+- ethos官方词表中，只有ICD_Multiple myeloma and malignant plasma cell neoplasms (ID: 2034)，目前只能以此为起点，以死亡token为终点。  
+### 新增创新任务3
+#### （Hospital Readmission/ICU Readmission任务轻量化。）
+#### 目前想法
+##### 1、删去词表中相关度低的token
+- 优化思路：模型输出logits后进行裁剪（比如只保留前3000个token），可以减少后续采样的计算量。  
+##### 2、大模型辅助
+- 优化思路：利用先验模型先预测后续几个token，与ETHOS的logits结果做对比，对了就采纳。（需要另外训练一个模型，比较耗时间）  
