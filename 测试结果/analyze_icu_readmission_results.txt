@@ -16,6 +16,7 @@ dtype: float64
 
 # 这是设置达到滑动窗口结束推理的生成token分析
 # 只取了“length_limit"的数据，相当于全部的1/3
+# 可以看出，其中3/4的患者（总量的1/4）只生产了1个token，也就说明他们的历史信息基本达到滑动窗口限制
 --- ICU Readmission Token Distance Distribution ---
 count    2487.000000
 mean      154.522316

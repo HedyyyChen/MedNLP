@@ -1,0 +1,101 @@
+Mode       | Iter  | Duration   | Status
+--------------------------------------------------
+KV_ON      | 1     | 1287.02s   | SUCCESS
+KV_ON      | 2     | 1341.07s   | SUCCESS
+KV_ON      | 3     | 1105.18s   | SUCCESS
+KV_ON      | 4     | 1470.37s   | SUCCESS
+KV_ON      | 5     | 954.57s    | SUCCESS
+KV_ON      | 6     | 964.69s    | SUCCESS
+KV_ON      | 7     | 1001.61s   | SUCCESS
+KV_ON      | 8     | 1275.61s   | SUCCESS
+KV_ON      | 9     | 1204.17s   | SUCCESS
+KV_ON      | 10    | 984.94s    | SUCCESS
+KV_ON      | 11    | 1227.51s   | SUCCESS
+KV_ON      | 12    | 1378.49s   | SUCCESS
+KV_ON      | 13    | 1595.77s   | SUCCESS
+KV_ON      | 14    | 931.27s    | SUCCESS
+KV_ON      | 15    | 1365.20s   | SUCCESS
+KV_ON      | 16    | 1185.56s   | SUCCESS
+KV_ON      | 17    | 1559.23s   | SUCCESS
+KV_ON      | 18    | 1014.08s   | SUCCESS
+KV_ON      | 19    | 1642.88s   | SUCCESS
+KV_ON      | 20    | 1005.67s   | SUCCESS
+KV_ON      | 21    | 851.70s    | SUCCESS
+KV_ON      | 22    | 1122.31s   | SUCCESS
+KV_ON      | 23    | 1645.79s   | SUCCESS
+KV_ON      | 24    | 1413.77s   | SUCCESS
+KV_ON      | 25    | 1403.22s   | SUCCESS
+KV_ON      | 26    | 890.73s    | SUCCESS
+KV_ON      | 27    | 852.61s    | SUCCESS
+KV_ON      | 28    | 1711.09s   | SUCCESS
+KV_ON      | 29    | 738.05s    | SUCCESS
+KV_ON      | 30    | 1430.86s   | SUCCESS
+average              1218.50s=20.31min
+
+KV_OFF     | 1     | 1723.00s   | SUCCESS
+KV_OFF     | 2     | 1506.44s   | SUCCESS
+KV_OFF     | 3     | 1207.22s   | SUCCESS
+KV_OFF     | 4     | 1485.21s   | SUCCESS
+KV_OFF     | 5     | 1858.75s   | SUCCESS
+KV_OFF     | 6     | 1196.29s   | SUCCESS
+KV_OFF     | 7     | 1233.01s   | SUCCESS
+KV_OFF     | 8     | 1875.11s   | SUCCESS
+KV_OFF     | 9     | 1597.49s   | SUCCESS
+KV_OFF     | 10    | 1687.14s   | SUCCESS
+KV_OFF     | 11    | 1343.55s   | SUCCESS
+KV_OFF     | 12    | 1741.80s   | SUCCESS
+KV_OFF     | 13    | 2008.57s   | SUCCESS
+KV_OFF     | 14    | 1314.61s   | SUCCESS
+KV_OFF     | 15    | 1709.04s   | SUCCESS
+KV_OFF     | 16    | 1242.09s   | SUCCESS
+KV_OFF     | 17    | 1638.07s   | SUCCESS
+KV_OFF     | 18    | 1684.22s   | SUCCESS
+KV_OFF     | 19    | 1610.78s   | SUCCESS
+KV_OFF     | 20    | 1373.67s   | SUCCESS
+KV_OFF     | 21    | 1453.90s   | SUCCESS
+KV_OFF     | 22    | 1781.76s   | SUCCESS
+KV_OFF     | 23    | 1585.49s   | SUCCESS
+KV_OFF     | 24    | 1291.98s   | SUCCESS
+KV_OFF     | 25    | 1263.82s   | SUCCESS
+KV_OFF     | 26    | 1656.22s   | SUCCESS
+KV_OFF     | 27    | 1554.70s   | SUCCESS
+KV_OFF     | 28    | 1532.34s   | SUCCESS
+KV_OFF     | 29    | 1709.50s   | SUCCESS
+KV_OFF     | 30    | 1360.56s   | SUCCESS
+average              1540.88s=25.68min
+
+时间降低21%
+
+KV_ON_AND_CUT | 1     | 720.33s    | SUCCESS
+KV_ON_AND_CUT | 2     | 742.08s    | SUCCESS
+KV_ON_AND_CUT | 3     | 995.23s    | SUCCESS
+KV_ON_AND_CUT | 4     | 843.38s    | SUCCESS
+KV_ON_AND_CUT | 5     | 1041.23s   | SUCCESS
+KV_ON_AND_CUT | 6     | 1055.17s   | SUCCESS
+KV_ON_AND_CUT | 7     | 896.03s    | SUCCESS
+KV_ON_AND_CUT | 8     | 792.12s    | SUCCESS
+KV_ON_AND_CUT | 9     | 1027.93s   | SUCCESS
+KV_ON_AND_CUT | 10    | 979.55s    | SUCCESS
+KV_ON_AND_CUT | 11    | 892.02s    | SUCCESS
+KV_ON_AND_CUT | 12    | 986.23s    | SUCCESS
+KV_ON_AND_CUT | 13    | 852.60s    | SUCCESS
+KV_ON_AND_CUT | 14    | 835.01s    | SUCCESS
+KV_ON_AND_CUT | 15    | 1013.26s   | SUCCESS
+KV_ON_AND_CUT | 16    | 982.54s    | SUCCESS
+KV_ON_AND_CUT | 17    | 953.19s    | SUCCESS
+KV_ON_AND_CUT | 18    | 992.75s    | SUCCESS
+KV_ON_AND_CUT | 19    | 1015.72s   | SUCCESS
+KV_ON_AND_CUT | 20    | 893.41s    | SUCCESS
+KV_ON_AND_CUT | 21    | 984.20s    | SUCCESS
+KV_ON_AND_CUT | 22    | 1171.08s   | SUCCESS
+KV_ON_AND_CUT | 23    | 824.07s    | SUCCESS
+KV_ON_AND_CUT | 24    | 1006.53s   | SUCCESS
+KV_ON_AND_CUT | 25    | 757.35s    | SUCCESS
+KV_ON_AND_CUT | 26    | 862.15s    | SUCCESS
+KV_ON_AND_CUT | 27    | 819.32s    | SUCCESS
+KV_ON_AND_CUT | 28    | 857.11s    | SUCCESS
+KV_ON_AND_CUT | 29    | 789.85s    | SUCCESS
+KV_ON_AND_CUT | 30    | 941.10s    | SUCCESS
+average                 917.42s=15.29min
+
+时间降低40%
