@@ -1,5 +1,6 @@
 # 这是官方结果集中icu再入院任务的生成token分析
 # count那么多是因为官方采样了20次，实际患者数量是6316
+# 图片在analyze_1.png
 --- ICU Readmission Token Distance Distribution ---
 count    126320.000000
 mean        575.384531
