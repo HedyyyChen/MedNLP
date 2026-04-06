@@ -99,3 +99,38 @@ KV_ON_AND_CUT | 30    | 941.10s    | SUCCESS
 average                 917.42s=15.29min
 
 时间降低40%
+
+KV_ON_INT8 | 1     | 1193.36s   | SUCCESS
+KV_ON_INT8 | 2     | 1219.37s   | SUCCESS
+KV_ON_INT8 | 3     | 1015.82s   | SUCCESS
+KV_ON_INT8 | 4     | 1133.61s   | SUCCESS
+KV_ON_INT8 | 5     | 955.04s    | SUCCESS
+KV_ON_INT8 | 6     | 1038.47s   | SUCCESS
+KV_ON_INT8 | 7     | 936.17s    | SUCCESS
+KV_ON_INT8 | 8     | 959.07s    | SUCCESS
+KV_ON_INT8 | 9     | 951.62s    | SUCCESS
+KV_ON_INT8 | 10    | 1171.57s   | SUCCESS
+KV_ON_INT8 | 11    | 932.05s    | SUCCESS
+KV_ON_INT8 | 12    | 1132.98s   | SUCCESS
+KV_ON_INT8 | 13    | 950.53s    | SUCCESS
+KV_ON_INT8 | 14    | 874.61s    | SUCCESS
+KV_ON_INT8 | 15    | 1174.78s   | SUCCESS
+KV_ON_INT8 | 16    | 1124.61s   | SUCCESS
+KV_ON_INT8 | 17    | 948.03s    | SUCCESS
+KV_ON_INT8 | 18    | 1192.43s   | SUCCESS
+KV_ON_INT8 | 19    | 1212.88s   | SUCCESS
+KV_ON_INT8 | 20    | 871.68s    | SUCCESS
+KV_ON_INT8 | 21    | 946.29s    | SUCCESS
+KV_ON_INT8 | 22    | 1027.26s   | SUCCESS
+KV_ON_INT8 | 23    | 943.45s    | SUCCESS
+KV_ON_INT8 | 24    | 1123.72s   | SUCCESS
+KV_ON_INT8 | 25    | 1264.03s   | SUCCESS
+KV_ON_INT8 | 26    | 1172.92s   | SUCCESS
+KV_ON_INT8 | 27    | 1123.10s   | SUCCESS
+KV_ON_INT8 | 28    | 945.84s    | SUCCESS
+KV_ON_INT8 | 29    | 875.43s    | SUCCESS
+KV_ON_INT8 | 30    | 872.43s    | SUCCESS
+KV_ON_INT8 | 30    | 872.43s    | SUCCESS
+average                 1037.28s=17.29min
+
+时间降低33%
