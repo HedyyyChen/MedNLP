@@ -134,3 +134,12 @@ KV_ON_INT8 | 30    | 872.43s    | SUCCESS
 average                 1037.28s=17.29min
 
 时间降低33%
+
+KV_ON_FP16 | 1     | 1423.51s   | SUCCESS
+KV_ON_FP16 | 2     | 1130.30s   | SUCCESS
+KV_ON_FP16 | 3     | 1080.85s   | SUCCESS
+KV_ON_FP16 | 4     | 1230.53s   | SUCCESS
+KV_ON_FP16 | 5     | 993.96s    | SUCCESS
+average                 1171.83s=19.53min
+
+时间降低24%
