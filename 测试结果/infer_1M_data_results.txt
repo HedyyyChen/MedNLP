@@ -140,6 +140,31 @@ KV_ON_FP16 | 2     | 1130.30s   | SUCCESS
 KV_ON_FP16 | 3     | 1080.85s   | SUCCESS
 KV_ON_FP16 | 4     | 1230.53s   | SUCCESS
 KV_ON_FP16 | 5     | 993.96s    | SUCCESS
-average                 1171.83s=19.53min
+KV_ON_FP16 | 6     | 1364.65s   | SUCCESS
+KV_ON_FP16 | 7     | 1124.52s   | SUCCESS
+KV_ON_FP16 | 8     | 965.98s    | SUCCESS
+KV_ON_FP16 | 9     | 1045.12s   | SUCCESS
+KV_ON_FP16 | 10    | 1051.00s   | SUCCESS
+KV_ON_FP16 | 11    | 1042.42s   | SUCCESS
+KV_ON_FP16 | 12    | 1177.08s   | SUCCESS
+KV_ON_FP16 | 13    | 1060.96s   | SUCCESS
+KV_ON_FP16 | 14    | 1156.44s   | SUCCESS
+KV_ON_FP16 | 15    | 1328.32s   | SUCCESS
+KV_ON_FP16 | 16    | 979.15s    | SUCCESS
+KV_ON_FP16 | 17    | 1021.10s   | SUCCESS
+KV_ON_FP16 | 18    | 926.61s    | SUCCESS
+KV_ON_FP16 | 19    | 1220.90s   | SUCCESS
+KV_ON_FP16 | 20    | 1093.54s   | SUCCESS
+KV_ON_FP16 | 21    | 1198.72s   | SUCCESS
+KV_ON_FP16 | 22    | 987.07s    | SUCCESS
+KV_ON_FP16 | 23    | 1188.55s   | SUCCESS
+KV_ON_FP16 | 24    | 983.41s    | SUCCESS
+KV_ON_FP16 | 25    | 1330.52s   | SUCCESS
+KV_ON_FP16 | 26    | 973.04s    | SUCCESS
+KV_ON_FP16 | 27    | 1180.19s   | SUCCESS
+KV_ON_FP16 | 28    | 995.43s    | SUCCESS
+KV_ON_FP16 | 29    | 1208.83s   | SUCCESS
+KV_ON_FP16 | 30    | 974.96s    | SUCCESS
+average                 1114.59s=18.58min
 
-时间降低24%
+时间降低28%
